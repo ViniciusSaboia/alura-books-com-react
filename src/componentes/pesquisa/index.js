@@ -8,7 +8,7 @@ const PesquisaContainer = styled.section`
     color: #FFF;
     text-align: center;
     padding: 85px 0;
-    height: 270px;
+    height: 500px;
     width: 100%;
 `
 
@@ -25,11 +25,18 @@ const Subtitulo = styled.h3`
     margin-bottom: 40px;
 `
 
+const ResultadoPesquisa = styled.section`
+    margin-top: 40px;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+`
+
 const Resultado = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    margin-bottom: 20px;
+    margin: 10px;
     cursor: pointer;
     p {
         width: 200px;
@@ -58,12 +65,14 @@ function Pesquisa() {
                     setLivrosPesquisados(resultadoPesquisa)
                 }}
             />
-            { livrosPesquisados.map( livro => (
-                <Resultado>
-                    <img src={livro.src} alt='livro'/>
-                    <p>{livro.nome}</p>
-                </Resultado>
-            )) }
+            <ResultadoPesquisa>
+                { livrosPesquisados.map( livro => (
+                    <Resultado>
+                        <img src={livro.src} alt='livro'/>
+                        <p>{livro.nome}</p>
+                    </Resultado>
+                )) }
+            </ResultadoPesquisa>
         </PesquisaContainer>
     )
 }
